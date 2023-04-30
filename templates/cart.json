@@ -31,7 +31,7 @@
     "5b8d5993-e5b5-4d9e-8152-aaabf33a10a5": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<script>\nwindow.location.replace(\"http:\/\/www.inscripciones.volcano100cr.com\/checkout\");\n<\/script>",
+        "custom_liquid": "<script>\nwindow.location.href = '\/checkout'\n<\/script>",
         "color_scheme": "background-1",
         "padding_top": 40,
         "padding_bottom": 52
