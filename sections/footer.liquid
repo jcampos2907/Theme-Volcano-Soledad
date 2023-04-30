@@ -53,7 +53,7 @@
   -%}
   
   <div class="klaviyo-form-XfLuJH"></div>
-  <div class = 'logo_footer'><img class = 'big' src = {{ 'metodos.png' | file_img_url: '400x400'  }}></div>
+  <div class = 'logo_footer'><img class = 'big' src = {{ 'metodos.png' | file_img_url: '400x400' }} loading = 'lazy' height = 'auto' width = 'auto'></div>
   <div class = 'logo_footer' style= 'padding-top:5rem'>{% render "volcano-logo" %}</div>
   {%- if section.blocks.size > 0 or section.settings.newsletter_enable or section.settings.show_social or section.settings.enable_follow_on_shop -%}
     {%- unless only_empty_brand -%}
