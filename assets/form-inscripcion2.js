@@ -1,9 +1,16 @@
 let edadTotal = 0
 
-window.addEventListener('pageshow', function(event) {
-  if (event.persisted) {
+window.addEventListener('pageshow', function (event) {
+
+  if (event.persisted ||
+    (typeof event.persisted === 'undefined' && event.performance &&
+      event.performance.navigation &&
+      event.performance.navigation.type === 2)) {
     // Reload the page to force a full refresh
     window.location.reload();
+    console.log('Page loaded from cache');
+  } else {
+    console.log('Page loaded normally');
   }
 });
 
