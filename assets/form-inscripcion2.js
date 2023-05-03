@@ -1,19 +1,19 @@
 let edadTotal = 0
 
-window.addEventListener('pageshow', function (event) {
+// window.addEventListener('pageshow', function (event) {
 
-  if (event.persisted ||
-    (typeof event.persisted === 'undefined' && event.performance &&
-      event.performance.navigation &&
-      event.performance.navigation.type === 2)) {
-    // Reload the page to force a full refresh
-    console.log('Page loaded from cache');
+//   if (event.persisted ||
+//     (typeof event.persisted === 'undefined' && event.performance &&
+//       event.performance.navigation &&
+//       event.performance.navigation.type === 2)) {
+//     // Reload the page to force a full refresh
+//     console.log('Page loaded from cache');
 
-    window.location.reload();
-  } else {
-    console.log('Page loaded normally');
-  }
-});
+//     window.location.reload();
+//   } else {
+//     console.log('Page loaded normally');
+//   }
+// });
 
 PopulateCountries()
 showModal()
