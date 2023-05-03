@@ -3,7 +3,11 @@ let edadTotal = 0
 window.addEventListener('pageshow', function(event) {
   if (event.persisted && event.performance.navigation.type === 2) {
     // Reload the page to force a full refresh
+    console.log('hola')
     window.location.reload();
+  }
+  else{
+    console.log('fallo')
   }
 });
 
