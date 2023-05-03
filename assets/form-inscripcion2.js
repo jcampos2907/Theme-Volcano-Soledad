@@ -1,15 +1,22 @@
 let edadTotal = 0
 
-window.addEventListener('pageshow', function(event) {
-  if (event.persisted && event.performance.navigation.type === 2) {
-    // Reload the page to force a full refresh
-    console.log('hola')
-    window.location.reload();
-  }
-  else{
-    console.log('fallo')
-  }
+$(document).ready(function() {
+  // Store the initial form values when the page is loaded
+  var initialFormValues = $('form[id*="product-form-installment-template"]').serialize();
+
+  // Listen for the pageshow event
+  $(window).on('pageshow', function(event) {
+    // Check if the page is loaded from a cache or a forward navigation
+    if (event.originalEvent.persisted || typeof event.originalEvent.persisted === 'undefined') {
+      // Compare the current form values to the initial form values
+      if ($('form[id*="product-form-installment-template"]').serialize() !== initialFormValues) {
+        // Clear the form if the current values are different from the initial values
+        $('form[id*="product-form-installment-template"]')[0].reset();
+      }
+    }
+  });
 });
+
 
 
 PopulateCountries()
