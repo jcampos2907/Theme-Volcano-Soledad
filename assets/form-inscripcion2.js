@@ -7,8 +7,9 @@ window.addEventListener('pageshow', function (event) {
       event.performance.navigation &&
       event.performance.navigation.type === 2)) {
     // Reload the page to force a full refresh
-    window.location.reload();
     console.log('Page loaded from cache');
+
+    window.location.reload();
   } else {
     console.log('Page loaded normally');
   }
