@@ -10,7 +10,6 @@ window.addEventListener('pageshow', function(event) {
 
 PopulateCountries()
 showModal()
-// getEdades()
 resetCart()
 
 initializeDateInputs()
@@ -101,9 +100,7 @@ function initializeDateInputs(){
         dateMask.updateValue()
       }
     });
-    // dateMask.on('complete',()=>{
-    //   $( input ).datepicker( "hide" );
-    // })
+
   })
   
 }
@@ -294,20 +291,6 @@ function setGenero(value) {
   updateCategorias()
 }
 
-
-// function getEdades(){
-//   let ageInputs = document.querySelectorAll('.fecha_nacimiento')
-//   ageInputs.forEach(input=>{
-//     input.addEventListener('focus',event=>{
-//       edadTotal-=calculateAge(event.target.value)
-//     })
-//     input.addEventListener('input',event=>{
-//       edadTotal += calculateAge(event.target.value)
-//       setEdad(edadTotal)
-//       // console.log(event.target.value)
-//     })  
-//   })
-// }
 
 function intializePhoneInputs(selectors) {
   selectors.each((i, obj)=>{
