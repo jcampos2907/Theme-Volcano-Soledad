@@ -31,8 +31,6 @@
   <script src="{{ 'populate_countries.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'multi-step.js' | asset_url }}" defer="defer"></script>
   
-{% comment %}   <script src="{{ 'image-picker.js' | asset_url }}" defer="defer"></script> {% endcomment %}
-  
   {% if section.settings.image_zoom == 'hover' %}
     <script id="EnableZoomOnHover-main" src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
   {% endif %}
@@ -169,10 +167,6 @@
                     <span class = 'caption' style = 'padding: 0 0'>Este número es igual al número de cupón que te envíamos, debés introducirlo antes de continuar con la inscripción</span>
                     
                   </div>
-                  {% else %}
-                  <script>
-                    window.location.replace("https://volcano100cr.com/");
-                  </script> 
                     {% endif %}
                   <div class='tab' id="Datos del Participante">
                     <div class = 'step_section subtitle'>Datos del participante</div>
@@ -1029,10 +1023,8 @@
     }
   </script>
 </section>
-
-<script src="{{ 'form-inscripcion.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'form-inscripcion2.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'initialize-form.js' | asset_url }}" defer="defer"></script>
-
 {% schema %}
 {
   "name": "t:sections.main-product.name",
