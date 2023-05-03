@@ -169,7 +169,10 @@
                     <span class = 'caption' style = 'padding: 0 0'>Este número es igual al número de cupón que te envíamos, debés introducirlo antes de continuar con la inscripción</span>
                     
                   </div>
-                    
+                  {% else %}
+                  <script>
+                    window.location.replace("http://www.volcano100cr.com");
+                  </script>
                     {% endif %}
                   <div class='tab' id="Datos del Participante">
                     <div class = 'step_section subtitle'>Datos del participante</div>
