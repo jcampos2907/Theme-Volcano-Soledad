@@ -156,7 +156,7 @@
                   <div class='tab' id="Validacion Preventa">
                     <div class = 'step_section subtitle'>Validación de la preventa</div>
                     <span style = "text-align:center;padding:0 1rem">
-                    <label>Actualmente nos encontramos en la primera fase de inscripción, por lo que solo clientes que hayan realizado la preventa podrán inscribirse.</label>
+                    <label>Este formulario es exclusivo para clientes que hayan comprado su inscripción en preventa, si querés comprar tu inscripción regular hacé click <a href="https://volcano100cr.com/">hacé click aquí para ser redireccionado a las inscripciones regulares</a></label>
                     <label>Si sos parte de la preventa te recordamos que el código de preventa es de un solo uso, por lo que compartirlo puede resultar en que te quedés sin inscripción</label>
                     </span>
                     
@@ -170,9 +170,10 @@
                     
                   </div>
                   {% else %}
-                  <script>
+                  <div><a style='color:white; padding-top:1rem; opacity:0.75' href="https://volcano100cr.com/preventa/">¿Sos parte de nuestra Preventa? Hacé click aquí para ser redireccionado a las inscripciones de preventa</a></div>
+                  {% comment %} <script>
                     window.location.replace("https://volcano100cr.com/");
-                  </script> 
+                  </script>  {% endcomment %}
                     {% endif %}
                   <div class='tab' id="Datos del Participante">
                     <div class = 'step_section subtitle'>Datos del participante</div>
