@@ -231,7 +231,7 @@ function updateCategorias(){
     $(categoriaSelect).selectmenu('destroy').selectmenu() 
   }
   catch(error){
-    console.error(error)
+    $(categoriaSelect).selectmenu()
   }
 }
 
