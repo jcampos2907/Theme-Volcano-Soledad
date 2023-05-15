@@ -373,8 +373,7 @@ function validateOrder() {
   x = document.getElementsByClassName("tab");
   const input = x[currentTab].querySelector(".preventa");
   if(!input) return valid
-  fetch(`https://https://f7b3-186-96-89-74.ngrok-free.app/check_code/${input.value}`).then(response=>console.log(response))
-
+  fetch(`https://https://f7b3-186-96-89-74.ngrok-free.app/check_code/${input.value}`)
   let container = input.closest('p')
   if(!orders.includes(input.value)){
     valid = false
