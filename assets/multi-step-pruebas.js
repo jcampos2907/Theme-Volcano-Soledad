@@ -378,8 +378,7 @@ function validateOrder() {
     url: `https://8cfb-186-96-89-74.ngrok-free.app/check_code/${input.value}`,
     headers: {
       'Content-Type': 'application/json',
-    },
-    data: { cedula }
+    }
   };
   axios.request(options).then(function (response) {
     console.log(response)
