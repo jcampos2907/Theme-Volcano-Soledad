@@ -382,7 +382,7 @@ function validateOrder() {
     },
     
   };
-  axios.request(options).then(function (response) {
+  axios.get(options).then(function (response) {
     console.log(response)
   })
   let container = input.closest('p')
