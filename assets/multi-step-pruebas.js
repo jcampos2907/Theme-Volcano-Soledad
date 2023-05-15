@@ -374,12 +374,13 @@ function validateOrder() {
   const input = x[currentTab].querySelector(".preventa");
   if (!input) return valid
   const options = {
+    method: 'GET',
     url: `https://8cfb-186-96-89-74.ngrok-free.app/check_code/${input.value}`,
     headers: {
       'Content-Type': 'application/json',
     }
   };
-  axios.get(options).then(function (response) {
+  axios.get(`https://8cfb-186-96-89-74.ngrok-free.app/check_code/${input.value}`).then(function (response) {
     console.log(response)
   })
   let container = input.closest('p')
