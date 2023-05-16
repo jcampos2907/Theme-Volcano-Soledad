@@ -380,6 +380,7 @@ function getLists() {
   };
   response = axios.request(options).then(function (response) {
     let {data } = response
+    console.log(data)
     orders = [...data.codes]
     usedCoupons = [...data.usedCoupons]
 
