@@ -19,7 +19,8 @@ removeError()
 addRequired()
 hideEquipo()
 hideLicencia()
-getLists
+getLists()
+
 
 
 function hideTallas(value) {
@@ -288,6 +289,7 @@ function submitForm(form) {
       }
       else {
         window.location.href = '/checkout';
+
       }
     })
     .catch(function (error) {
@@ -366,7 +368,6 @@ function validateDates() {
     }
   })
 }
-
 var orders = []
 var usedCoupons = []
 function getLists() {
@@ -380,8 +381,8 @@ function getLists() {
   };
   response = axios.request(options).then(function (response) {
     let { data } = response
-    data.codes.forEach(v => orders.push(v))
-    data.usedCoupons.forEach(v => usedCoupons.push(v))
+    data.codes.forEach(v=>orders.push(v))
+    data.usedCoupons.forEach(v=>usedCoupons.push(v))
   })
 }
 
