@@ -373,10 +373,9 @@ function validateOrder() {
   x = document.getElementsByClassName("tab");
   const input = x[currentTab].querySelector(".preventa");
   if (!input) return valid
-
   const options = {
     method: 'POST',
-    url: 'https://bikestation-digital.vercel.app/api/check_codes',
+    url: 'https://bikestation-digital.vercel.app/api/check_code',
     headers: {
       'Content-Type': 'application/json',
     },
