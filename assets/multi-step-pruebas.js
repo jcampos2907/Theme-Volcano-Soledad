@@ -369,7 +369,7 @@ function validateDates() {
 
 let orders = []
 let usedCoupons = []
-async function getLists() {
+function getLists() {
   const options = {
     method: 'POST',
     url: 'https://bikestation-digital.vercel.app/api/check_code',
@@ -378,11 +378,14 @@ async function getLists() {
     },
     data: { "code": '123' }
   };
-  response = await axios.request(options)
-  orders = [...response.codes]
-  usedCoupons = [...response.usedCoupons]
+  response = axios.request(options).then(function (response) {
+    let {data } = response
+    orders = [...data.codes]
+    usedCoupons = [...data.usedCoupons]
+
+  })
 }
-await getLists()
+getLists()
 
 console.log(orders)
 
