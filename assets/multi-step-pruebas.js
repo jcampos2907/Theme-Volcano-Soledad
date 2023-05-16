@@ -373,30 +373,31 @@ function validateOrder() {
   x = document.getElementsByClassName("tab");
   const input = x[currentTab].querySelector(".preventa");
   if (!input) return valid
+
   const options = {
-    method: 'GET',
-    url: `https://8cfb-186-96-89-74.ngrok-free.app/check_code/${input.value}`,
+    method: 'POST',
+    url: 'https://bikestation-digital.vercel.app/api/check_codes',
     headers: {
       'Content-Type': 'application/json',
-      "withCredentials": "false",
     },
-    
+    data: { "code": input.value }
   };
-  axios.get(`https://7dcf-186-96-89-74.ngrok-free.app/check_code/${input.value}`,[options]).then(function (response) {
-    console.log(response)
-  })
-  let container = input.closest('p')
-  if (!orders.includes(input.value)) {
-    valid = false
-    if (!input.className.includes('invalid')) {
-      const msj = document.createElement("span");
-      const node = document.createTextNode("El número de orden ingresado no es valido o ya fue ingresado");
-      msj.classList.add("emsg");
-      msj.appendChild(node);
-      container.appendChild(msj)
-      input.className += " invalid"
+  axios.request(options).then(function (response) {
+    const { data } = response.data
+    let container = input.closest('p')
+    if (!data.accepted) {
+      valid = false
+      if (!input.className.includes('invalid')) {
+        const msj = document.createElement("span");
+        const node = document.createTextNode("El número de orden ingresado no es valido o ya fue ingresado");
+        msj.classList.add("emsg");
+        msj.appendChild(node);
+        container.appendChild(msj)
+        input.className += " invalid"
+      }
     }
-  }
+  })
+
   return valid
 }
 
