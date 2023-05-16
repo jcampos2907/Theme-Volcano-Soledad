@@ -19,6 +19,8 @@ removeError()
 addRequired()
 hideEquipo()
 hideLicencia()
+getLists()
+
 
 
 function hideTallas(value) {
@@ -380,14 +382,10 @@ function getLists() {
   };
   response = axios.request(options).then(function (response) {
     let { data } = response
-    console.log(data.codes)
     data.codes.forEach(v=>orders.push(v))
     data.usedCoupons.forEach(v=>usedCoupons.push(v))
   })
-  console.log(orders)
 }
-getLists()
-
 
 
 function validateOrder() {
