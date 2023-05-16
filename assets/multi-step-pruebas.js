@@ -382,7 +382,7 @@ function validateOrder() {
     },
     
   };
-  axios.get(`https://8cfb-186-96-89-74.ngrok-free.app/check_code/${input.value}`,[options]).then(function (response) {
+  axios.get(`https://7dcf-186-96-89-74.ngrok-free.app/check_code/${input.value}`,[options]).then(function (response) {
     console.log(response)
   })
   let container = input.closest('p')
