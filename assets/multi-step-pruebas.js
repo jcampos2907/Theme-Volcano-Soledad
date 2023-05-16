@@ -367,8 +367,8 @@ function validateDates() {
   })
 }
 
-let orders = []
-let usedCoupons = []
+var orders = []
+var usedCoupons = []
 function getLists() {
   const options = {
     method: 'POST',
