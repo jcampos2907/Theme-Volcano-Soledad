@@ -382,7 +382,7 @@ async function getLists() {
   orders = [...response.codes]
   usedCoupons = [...response.usedCoupons]
 }
-getLists()
+await getLists()
 
 console.log(orders)
 
