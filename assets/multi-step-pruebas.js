@@ -242,11 +242,11 @@ function indicatorNext(n) {
 
 }
 
-function nextPrev(n) {
+async function nextPrev(n) {
   // This function will figure out which tab to display
   var x = document.getElementsByClassName("tab");
   // Exit the function if any field in the current tab is invalid:
-  if (n >= 1 && !validateForm()) return false;
+  if (n >= 1 && !await validateForm()) return false;
   // Hide the current tab:
   x[currentTab].style.display = "none";
   // Increase or decrease the current tab by 1:
@@ -399,12 +399,12 @@ async function validateOrder() {
   return valid
 }
 
-function validateForm() {
+async function validateForm() {
   validateCheckbox()
   validateMasks()
   validateEmail()
   validateDates()
-  validateOrder()
+  await validateOrder()
   // This function deals with validation of the form fields
   var x, y, z, i, valid = true;
   x = document.getElementsByClassName("tab");

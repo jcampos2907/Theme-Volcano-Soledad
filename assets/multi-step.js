@@ -372,7 +372,6 @@ function validateOrder() {
   x = document.getElementsByClassName("tab");
   const input = x[currentTab].querySelector(".preventa");
   if(!input) return valid
-
   let container = input.closest('p')
   if(!orders.includes(input.value)){
     valid = false
