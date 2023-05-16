@@ -368,7 +368,7 @@ function validateDates() {
 }
 let orders = []
 let usedCoupons = []
-await getLists()
+getLists()
 async function getLists() {
   const options = {
     method: 'POST',
