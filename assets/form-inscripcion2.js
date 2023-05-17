@@ -617,6 +617,19 @@ function getPhoneCode(code, fallback) {
       return phoneCode
     });
 }
+getPhoneCode2();
+function getPhoneCode2(code, fallback) {
+  return fetch('https://unpkg.com/libphonenumber-js@1.9.6/examples.mobile.json')
+    .then(response => response.json())
+    .then(examples => {
+      return examples
+      let example = libphonenumber.getExampleNumber(examples);
+      if (!example) return ''
+      let phoneCode = example.number.replace(example.nationalNumber, '')
+      // let phoneCode = example?.countryCallingCode
+      return phoneCode
+    });
+}
 
 function PopulateCountries() {
   const preferredCountryCodes = ['CR', 'US', 'CA', 'GB', 'ES', 'NI', 'GT', 'HN'];
@@ -675,11 +688,11 @@ function PopulateCountries() {
             option.textContent = preferredCountry.translations.spa.common || preferredCountry.name.common;
             option.setAttribute('data-style', `background-image: url('${preferredCountry.flags.png}')`)
             const code = document.createElement('span');
-            getPhoneCode(preferredCountry.cca2).then(phoneCode => {
-              code.textContent = phoneCode
-              option.value = JSON.stringify({ code: code.textContent, countrycode: preferredCountry.cca2, image: preferredCountry.flags.png });
-              preferredGroup.appendChild(option);
-            })
+            // getPhoneCode(preferredCountry.cca2).then(phoneCode => {
+            //   code.textContent = phoneCode
+            //   option.value = JSON.stringify({ code: code.textContent, countrycode: preferredCountry.cca2, image: preferredCountry.flags.png });
+            //   preferredGroup.appendChild(option);
+            // })
             // code.textContent = preferredCountry.idd.root;
             // if(preferredCountry.idd.suffixes.length == 1)code.textContent = `${preferredCountry.idd.root}${preferredCountry.idd.suffixes}`;
           }
@@ -701,11 +714,11 @@ function PopulateCountries() {
             option.textContent = country.translations.spa.common || country.name.common;
             option.setAttribute('data-style', `background-image: url('${country.flags.png}')`)
             const code = document.createElement('span');
-            getPhoneCode(country.cca2).then(phoneCode => {
-              code.textContent = phoneCode
-              option.value = JSON.stringify({ code: code.textContent, countrycode: country.cca2, image: country.flags.png });
-              restGroup.appendChild(option);
-            })
+            // getPhoneCode(country.cca2).then(phoneCode => {
+            //   code.textContent = phoneCode
+            //   option.value = JSON.stringify({ code: code.textContent, countrycode: country.cca2, image: country.flags.png });
+            //   restGroup.appendChild(option);
+            // })
             // code.textContent = country.idd.root; 
             // if(country.idd.suffixes && country.idd.suffixes.length == 1)code.textContent = `${country.idd.root}${country.idd.suffixes}`;
           }
