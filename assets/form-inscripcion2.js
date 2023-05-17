@@ -724,7 +724,11 @@ function PopulateCountries() {
               option.textContent = country.translations.spa.common || country.name.common;
               option.setAttribute('data-style', `background-image: url('${country.flags.png}')`)
               const code = document.createElement('span');
-              const example = libphonenumber.getExampleNumber(country.cca2, examples)
+              // const example = libphonenumber.getExampleNumber(country.cca2, examples)
+              const example = libphonenumber.getExampleNumber("CR", examples)
+
+
+              console.log(example)
               const phoneCode = example.number.replace(example.nationalNumber, '')
               code.textContent = phoneCode
               option.value = JSON.stringify({ code: code.textContent, countrycode: country.cca2, image: country.flags.png });
