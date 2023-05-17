@@ -611,27 +611,13 @@ function getPhoneCode(code, fallback) {
     .then(response => response.json())
     .then(examples => {
       return examples
-      let example = libphonenumber.getExampleNumber(code, examples);
-      if (!example) return ''
-      let phoneCode = example.number.replace(example.nationalNumber, '')
-      // let phoneCode = example?.countryCallingCode
-      return phoneCode
+      // let example = libphonenumber.getExampleNumber(code, examples);
+      // if (!example) return ''
+      // let phoneCode = example.number.replace(example.nationalNumber, '')
+      // // let phoneCode = example?.countryCallingCode
+      // return phoneCode
     });
 }
-// getPhoneCode2().then(value => console.log(libphonenumber.getExampleNumber("CR", value)));
-// function getPhoneCode2(code, fallback) {
-//   return fetch('https://unpkg.com/libphonenumber-js@1.9.6/examples.mobile.json')
-//     .then(response => response.json())
-//     .then(examples => {
-//       // console.log(examples)
-//       return examples
-//       let example = libphonenumber.getExampleNumber(examples);
-//       if (!example) return ''
-//       let phoneCode = example.number.replace(example.nationalNumber, '')
-//       // let phoneCode = example?.countryCallingCode
-//       return phoneCode
-//     });
-// }
 
 function PopulateCountries() {
   const preferredCountryCodes = ['CR', 'US', 'CA', 'GB', 'ES', 'NI', 'GT', 'HN'];
