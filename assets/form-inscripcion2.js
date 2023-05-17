@@ -704,7 +704,7 @@ function PopulateCountries() {
             //   preferredGroup.appendChild(option);
             // })
 
-            console.log(libphonenumber.getExampleNumber("CR", value))
+            // console.log(libphonenumber.getExampleNumber("CR", value))
             // code.textContent = preferredCountry.idd.root;
             // if(preferredCountry.idd.suffixes.length == 1)code.textContent = `${preferredCountry.idd.root}${preferredCountry.idd.suffixes}`;
           }
