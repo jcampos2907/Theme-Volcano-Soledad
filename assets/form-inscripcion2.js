@@ -617,7 +617,7 @@ function getPhoneCode(code, fallback) {
       return phoneCode
     });
 }
-getPhoneCode2();
+console.log(getPhoneCode2());
 function getPhoneCode2(code, fallback) {
   return fetch('https://unpkg.com/libphonenumber-js@1.9.6/examples.mobile.json')
     .then(response => response.json())
