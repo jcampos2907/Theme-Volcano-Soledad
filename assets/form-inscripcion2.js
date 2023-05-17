@@ -622,6 +622,7 @@ function getPhoneCode2(code, fallback) {
   return fetch('https://unpkg.com/libphonenumber-js@1.9.6/examples.mobile.json')
     .then(response => response.json())
     .then(examples => {
+      console.log(examples)
       return examples
       let example = libphonenumber.getExampleNumber(examples);
       if (!example) return ''
