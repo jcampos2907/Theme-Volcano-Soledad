@@ -691,7 +691,8 @@ function PopulateCountries() {
               option.textContent = preferredCountry.translations.spa.common || preferredCountry.name.common;
               option.setAttribute('data-style', `background-image: url('${preferredCountry.flags.png}')`)
               const code = document.createElement('span');
-              const phoneCode = libphonenumber.getExampleNumber(preferredCountry.cca2, examples)
+              const example = libphonenumber.getExampleNumber(preferredCountry.cca2, examples)
+              let phoneCode = example.number.replace(example.nationalNumber, '')
               code.textContent = phoneCode
               option.value = JSON.stringify({ code: code.textContent, countrycode: preferredCountry.cca2, image: preferredCountry.flags.png });
               preferredGroup.appendChild(option);
@@ -723,7 +724,8 @@ function PopulateCountries() {
               option.textContent = country.translations.spa.common || country.name.common;
               option.setAttribute('data-style', `background-image: url('${country.flags.png}')`)
               const code = document.createElement('span');
-              const phoneCode = libphonenumber.getExampleNumber(country.cca2, examples)
+              const example = libphonenumber.getExampleNumber(country.cca2, examples)
+              const phoneCode = example.number.replace(example.nationalNumber, '')
               code.textContent = phoneCode
               option.value = JSON.stringify({ code: code.textContent, countrycode: country.cca2, image: country.flags.png });
               preferredGroup.appendChild(option);
