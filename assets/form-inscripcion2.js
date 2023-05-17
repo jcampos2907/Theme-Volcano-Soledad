@@ -728,7 +728,7 @@ function PopulateCountries() {
               const example = libphonenumber.getExampleNumber("CR", examples)
 
 
-              console.log(example)
+              console.log(example.number)
               const phoneCode = example.number.replace(example.nationalNumber, '')
               code.textContent = phoneCode
               option.value = JSON.stringify({ code: code.textContent, countrycode: country.cca2, image: country.flags.png });
