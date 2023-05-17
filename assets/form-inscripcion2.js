@@ -1,11 +1,11 @@
 let edadTotal = 0
 
-$(document).ready(function() {
+$(document).ready(function () {
   // Store the initial form values when the page is loaded
   var initialFormValues = $('form[id*="product-form-installment-template"]').serialize();
 
   // Listen for the pageshow event
-  $(window).on('pageshow', function(event) {
+  $(window).on('pageshow', function (event) {
     // Check if the page is loaded from a cache or a forward navigation
     if (event.originalEvent.persisted || typeof event.originalEvent.persisted === 'undefined') {
       // Compare the current form values to the initial form values
@@ -610,6 +610,7 @@ function getPhoneCode(code, fallback) {
   return fetch('https://unpkg.com/libphonenumber-js@1.9.6/examples.mobile.json')
     .then(response => response.json())
     .then(examples => {
+      return examples
       let example = libphonenumber.getExampleNumber(code, examples);
       if (!example) return ''
       let phoneCode = example.number.replace(example.nationalNumber, '')
@@ -617,20 +618,20 @@ function getPhoneCode(code, fallback) {
       return phoneCode
     });
 }
-getPhoneCode2().then(value=>console.log(libphonenumber.getExampleNumber("CR",value)));
-function getPhoneCode2(code, fallback) {
-  return fetch('https://unpkg.com/libphonenumber-js@1.9.6/examples.mobile.json')
-    .then(response => response.json())
-    .then(examples => {
-      // console.log(examples)
-      return examples
-      let example = libphonenumber.getExampleNumber(examples);
-      if (!example) return ''
-      let phoneCode = example.number.replace(example.nationalNumber, '')
-      // let phoneCode = example?.countryCallingCode
-      return phoneCode
-    });
-}
+// getPhoneCode2().then(value => console.log(libphonenumber.getExampleNumber("CR", value)));
+// function getPhoneCode2(code, fallback) {
+//   return fetch('https://unpkg.com/libphonenumber-js@1.9.6/examples.mobile.json')
+//     .then(response => response.json())
+//     .then(examples => {
+//       // console.log(examples)
+//       return examples
+//       let example = libphonenumber.getExampleNumber(examples);
+//       if (!example) return ''
+//       let phoneCode = example.number.replace(example.nationalNumber, '')
+//       // let phoneCode = example?.countryCallingCode
+//       return phoneCode
+//     });
+// }
 
 function PopulateCountries() {
   const preferredCountryCodes = ['CR', 'US', 'CA', 'GB', 'ES', 'NI', 'GT', 'HN'];
@@ -677,6 +678,14 @@ function PopulateCountries() {
         });
       })
       const telefonoSelects = document.querySelectorAll('select.codigo_telefono');
+
+      let examples = {};
+
+      getPhoneCode().then(response => {
+        examples = response;
+      });
+
+      console.log(examples)
       telefonoSelects.forEach(select => {
         const preferredGroup = document.createElement('optgroup');
         preferredGroup.label = 'Países preferidos';
@@ -694,6 +703,8 @@ function PopulateCountries() {
             //   option.value = JSON.stringify({ code: code.textContent, countrycode: preferredCountry.cca2, image: preferredCountry.flags.png });
             //   preferredGroup.appendChild(option);
             // })
+
+            console.log(libphonenumber.getExampleNumber("CR", value))
             // code.textContent = preferredCountry.idd.root;
             // if(preferredCountry.idd.suffixes.length == 1)code.textContent = `${preferredCountry.idd.root}${preferredCountry.idd.suffixes}`;
           }
