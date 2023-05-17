@@ -691,7 +691,7 @@ function PopulateCountries() {
               option.textContent = preferredCountry.translations.spa.common || preferredCountry.name.common;
               option.setAttribute('data-style', `background-image: url('${preferredCountry.flags.png}')`)
               const code = document.createElement('span');
-              const phoneCode = libphonenumber.getExampleNumber(preferredCountry.cca2, value)
+              const phoneCode = libphonenumber.getExampleNumber(preferredCountry.cca2, examples)
               code.textContent = phoneCode
               option.value = JSON.stringify({ code: code.textContent, countrycode: preferredCountry.cca2, image: preferredCountry.flags.png });
               preferredGroup.appendChild(option);
