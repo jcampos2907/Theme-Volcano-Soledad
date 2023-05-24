@@ -137,6 +137,21 @@
                       <div class="step-name">Datos del Paquete</div>
                     </div>
                   </div>
+                  {% elsif product.title contains "Cupon"%}
+                  <div class="stepper-wrapper">
+                    <div class="stepper-item text-body" onclick = 'indicatorNext(0)' style = 'cursor:pointer' >
+                      <div class="step-counter" >1</div>
+                      <div class="step-name">Validación del Cupón</div>
+                    </div>
+                    <div class="stepper-item text-body" onclick = 'indicatorNext(1)' style = 'cursor:pointer' >
+                      <div class="step-counter" >2</div>
+                      <div class="step-name">Datos del Participante</div>
+                    </div>
+                    <div class="stepper-item text-body" onclick = 'indicatorNext(2)' style = 'cursor:pointer'>
+                      <div class="step-counter">3</div>
+                      <div class="step-name">Datos del Paquete</div>
+                    </div>
+                  </div>
                     {% else %}
                     <div class="stepper-wrapper">
                     <div class="stepper-item text-body" onclick = 'indicatorNext(0)' style = 'cursor:pointer' >
@@ -166,6 +181,19 @@
                   </p>
                     <span class = 'caption' style = 'padding: 0 0'>Este número es igual al número de cupón que te envíamos, debés introducirlo antes de continuar con la inscripción</span>
                     
+                  </div>
+                  {% elsif product.title contains "Cupon"%}
+                  <div class='tab' id="Validacion Cupon">
+                    <div class = 'step_section subtitle'>Validación del cupón</div>
+                    <span style = "text-align:center;padding:0 1rem">
+                    <label>Este formulario es exclusivo para clientes con cupon de descuento</label>
+                    </span>
+                  <p class="line-item-property__field">
+                            <label cedula='true' for="numero_orden_preventa">Numero de cupón: </label>
+                            <input required class="required preventa" id="numero_orden_preventa" type="text"
+                                name="properties[Numero de orden Woocommerce]">
+                  </p>
+                    <span class = 'caption' style = 'padding: 0 0'>Por favor tomar en cuenta que debe ingresar el numero exactamente como se le indica en las instrucciones</span>
                   </div>
                     {% endif %}
                   <div class='tab' id="Datos del Participante">
