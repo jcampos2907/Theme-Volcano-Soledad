@@ -324,7 +324,7 @@
                         </div>
                     </div>
                     <h1 class = 'step_section'>Datos del paquete</h1>
-                    {%if product.selected_or_first_available_variant.title contains '50km'%}
+                    {% if product.selected_or_first_available_variant.title contains '50km' %}
                     <p class="line-item-property__field">
                       <label for="talla_t_shirt">Talla del T-Shirt:</label>
                       <select required class='select_normal required' id="talla_t_shirt" name="properties[Talla del T-Shirt]">
@@ -367,7 +367,9 @@
                             </select>
                         </p>
                     </div>
-                    {%endif%}
+                  {% endif %}
+                  <div>{{ product.selected_or_first_available_variant.title }}</div>
+
                     <div class = "modalContainer">
                       <span class = "modalBtn" style='cursor: pointer;text-decoration: underline;'>Ver guia de tallas del jersey</span>
                       <!-- The Modal -->
