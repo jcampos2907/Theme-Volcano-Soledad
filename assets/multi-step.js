@@ -463,6 +463,7 @@ function getLicencia(cedula, inputtemp) {
   const licencia = document.querySelector(`input.num_licencia[idcontrol = ${inputtemp.id}]`)
   if (!licencia) return
   const licencia_error = licencia?.closest('p').querySelector('.emsg')
+  cedula = cedula.replace(" ","")
   const options = {
     method: 'GET',
     url: `https://bikestation-digital.vercel.app/get-licencia?cedula=${cedula}`,
