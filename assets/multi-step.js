@@ -372,7 +372,7 @@ var orders = []
 function getLists() {
   const options = {
     method: 'GET',
-    url: 'https://bikestation-digital.vercel.app/check_code',
+    url: 'https://bikestation-digital.vercel.app/check-code',
     headers: {
       'Content-Type': 'application/json',
     },
