@@ -371,12 +371,11 @@ function validateDates() {
 var orders = []
 function getLists() {
   const options = {
-    method: 'POST',
+    method: 'GET',
     url: 'https://bikestation-digital.vercel.app/check_code',
     headers: {
       'Content-Type': 'application/json',
     },
-    data: { "code": '123' }
   };
   response = axios.request(options).then(function (response) {
     let { data } = response
