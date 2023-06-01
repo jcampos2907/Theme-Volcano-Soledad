@@ -464,12 +464,11 @@ function getLicencia(cedula, inputtemp) {
   if (!licencia) return
   const licencia_error = licencia?.closest('p').querySelector('.emsg')
   const options = {
-    method: 'POST',
-    url: 'https://bikestation-digital.vercel.app/api/get-licencia',
+    method: 'GET',
+    url: `https://bikestation-digital.vercel.app/get-licencia?${cedula}`,
     headers: {
       'Content-Type': 'application/json',
     },
-    data: { cedula }
   };
   axios.request(options).then(function (response) {
     const { data } = response.data
