@@ -419,7 +419,7 @@ function initializeIdInputs(selectors) {
     });
     idMask.on('accept',()=>{
       if(idLabel.getAttribute('cedula') == 'true') return
-      const value = idMask.value;
+      const value = idMask.unmaskedValue;
       getLicencia(value,idInput)
     })
     
