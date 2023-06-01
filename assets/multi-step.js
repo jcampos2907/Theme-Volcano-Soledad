@@ -465,7 +465,7 @@ function getLicencia(cedula, inputtemp) {
   const licencia_error = licencia?.closest('p').querySelector('.emsg')
   const options = {
     method: 'GET',
-    url: `https://bikestation-digital.vercel.app/get-licencia?${cedula}`,
+    url: `https://bikestation-digital.vercel.app/get-licencia?cedula=${cedula}`,
     headers: {
       'Content-Type': 'application/json',
     },
