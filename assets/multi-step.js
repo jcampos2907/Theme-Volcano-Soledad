@@ -369,11 +369,10 @@ function validateDates() {
   })
 }
 var orders = []
-var usedCoupons = []
 function getLists() {
   const options = {
     method: 'POST',
-    url: 'https://bikestation-digital.vercel.app/api/check_code',
+    url: 'https://bikestation-digital.vercel.app/check_code',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -382,7 +381,6 @@ function getLists() {
   response = axios.request(options).then(function (response) {
     let { data } = response
     data.codes.forEach(v=>orders.push(v))
-    data.usedCoupons.forEach(v=>usedCoupons.push(v))
   })
 }
 
@@ -393,7 +391,7 @@ function validateOrder() {
   const input = x[currentTab].querySelector(".preventa");
   if (!input) return valid
   let container = input.closest('p')
-  if (!orders.includes(input.value) || usedCoupons.includes(input.value)) {
+  if (!orders.includes(input.value)) {
     valid = false
     if (!input.className.includes('invalid')) {
       const msj = document.createElement("span");
