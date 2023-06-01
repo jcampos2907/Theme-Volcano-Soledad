@@ -472,6 +472,7 @@ function getLicencia(cedula, inputtemp) {
   };
   axios.request(options).then(function (response) {
     const { data } = response.data
+    console.log(data)
     if (!Object.keys(data).length) {
       radioNo.click()
       licencia.value = ''
